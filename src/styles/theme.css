@@ -19,9 +19,13 @@
   --black: #000000;
   
   --success-color: #00A30B;
+  --success-secondary-color: #79eb81;
   --failure-color: #FF3E3E;
-  --medium-color: #FFA600;
+  --failure-secondary-color: #ffa0a0;
+  --warning-color: #FFA600;
+  --warning-secondary-color: #ffd17b;
   --info-color: #6797ff;
+  --info-secondary-color: #b9cfff;
 
   --gap: 20px;
   --gap-2: calc(2 * var(--gap));

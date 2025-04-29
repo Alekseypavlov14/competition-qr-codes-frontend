@@ -1,0 +1,29 @@
+.NotificationCard {
+  background-color: var(--background);
+  border: 1px solid var(--border-color);
+  color: var(--color);
+
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.Success {
+  --background: var(--success-secondary-color);
+  --border-color: var(--success-color);
+  --color: var(--success-color);
+}
+.Failure {
+  --background: var(--failure-secondary-color);
+  --border-color: var(--failure-color);
+  --color: var(--failure-color);
+}
+.Warning {
+  --background: var(--warning-secondary-color);
+  --border-color: var(--warning-color);
+  --color: var(--warning-color);
+}
+.Info {
+  --background: var(--info-secondary-color);
+  --border-color: var(--info-color);
+  --color: var(--info-color);
+}
