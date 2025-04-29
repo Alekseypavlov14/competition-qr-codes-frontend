@@ -3,6 +3,7 @@ import { ReactNode } from 'react'
 import { Page } from '@/shared/components/Page'
 import { Main } from '@/shared/components/Main'
 import styles from './DashboardLayout.module.css'
+import { Container } from '@/shared/components/Container'
 
 interface DashboardLayoutProps {
   children: ReactNode
@@ -14,7 +15,9 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
       <DashboardHeader />
 
       <Main className={styles.Main}>
-        {children}
+        <Container>
+          {children}
+        </Container>
       </Main>     
     </Page>
   )
