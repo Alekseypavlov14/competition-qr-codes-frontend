@@ -1,0 +1,91 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:regular,500,600,700);
+@import url(https://fonts.googleapis.com/css?family=Oswald:600);
+
+:root {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-size: 77px;
+  font-weight: 600;
+}
+h2 {
+  font-size: 55px;
+  font-weight: 600;
+}
+h3 {
+  font-size: 50px;
+  font-weight: 500;
+}
+h4 {
+  font-size: 40px;
+  font-weight: 500;
+}
+h5 {
+  font-size: 36px;
+  font-weight: 400;
+}
+h6 {
+  font-size: 26px;
+  font-weight: 500;
+}
+.text {
+  font-size: 20px;
+  font-weight: 500;
+}
+.text-small {
+  font-size: 16px;
+  font-weight: 400;
+}
+@media (max-width: 768px) {
+  h1 {
+    font-size: 60px;
+  }
+  h2 {
+    font-size: 34px;
+  }
+  h3 {
+    font-size: 32px;
+  }
+  h4 {
+    font-size: 30px;
+  }
+  h5 {
+    font-size: 26px;
+  }
+  h6 {
+    font-size: 22px;
+  }
+  .text {
+    font-size: 16px;
+  }
+  .text-small {
+    font-size: 12px;
+  }
+}
+@media (max-width: 450px) {
+  h1 {
+    font-size: 36px;
+  }
+  h2 {
+    font-size: 22px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+  h4 {
+    font-size: 18px;
+  }
+  h5 {
+    font-size: 20px;
+  }
+  h6 {
+    font-size: 16px;
+  }
+  .text {
+    font-size: 12px;
+  }
+  .text-small {
+    font-size: 10px;
+  }
+}

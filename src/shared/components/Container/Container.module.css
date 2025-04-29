@@ -1,0 +1,10 @@
+.Container {
+  width: 100%;
+  max-width: 1180px;
+  padding: 0px 15px;
+  margin: 0px auto;
+}
+
+.ContainerPage {
+  height: 100%;
+}

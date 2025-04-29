@@ -1,0 +1,14 @@
+.AuthForm {
+  padding: 40px 0px;
+  max-width: 600px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  background-color: var(--white);
+  border: 1px solid var(--dark-800);
+  
+  padding: 40px 30px;
+  border-radius: 15px;
+}

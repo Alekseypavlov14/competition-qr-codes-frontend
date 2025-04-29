@@ -1,0 +1,38 @@
+.Input {
+  width: fit-content;
+  height: 44px;
+  padding: 0px 10px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background-color: var(--white);
+  border: 1px solid var(--dark-500);
+  border-radius: 10px;
+}
+.InputBlock {
+  width: 100%;
+}
+.InputControl {
+  display: block;
+  flex: 1 1 auto;
+
+  font-size: 18px;
+  color: var(--dark-100);
+  line-height: 1.1;
+
+  background-color: transparent;
+}
+.InputControl::placeholder {
+  color: var(--dark-700);
+  line-height: 1.1;
+}
+.InputDisabled {
+  border-color: var(--dark-700);
+  background-color: var(--dark-900);
+  cursor: not-allowed;
+}
+.InputDisabled .InputControl {
+  cursor: not-allowed;
+}

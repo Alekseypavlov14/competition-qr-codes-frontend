@@ -1,0 +1,11 @@
+.Logo {
+  font-family: 'Oswald';
+  line-height: 1.1;
+  font-weight: 600;
+  font-size: 40px;
+  color: var(--primary-200);
+  user-select: none;
+}
+.Logo span {
+  color: var(--dark-100);
+}

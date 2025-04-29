@@ -1,0 +1,50 @@
+.Button {
+  display: block;
+  width: fit-content;
+
+  padding: 10px 30px;
+  border-radius: 10px;
+  
+  color: var(--dark-300);
+  user-select: none;
+
+  border: 1px solid var(--dark-700);
+  background-color: var(--white);
+  cursor: pointer;
+
+  transition: 0.3s background-color, color, border-color;
+}
+.ButtonWithIcon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ButtonCentered {
+  display: flex;
+  justify-content: center;
+}
+.ButtonFilled {
+  background-color: var(--primary-300);
+  border-color: var(--primary-300);
+  color: var(--white);
+}
+.ButtonOutlined {
+  background-color: var(--white);
+  border-color: var(--primary-200);
+  color: var(--primary-100);
+}
+.ButtonBlock {
+  width: 100%;
+}
+@media (hover: hover) {
+  .Button:hover {
+    background-color: var(--dark-900);
+  }
+  .ButtonFilled:hover {
+    background-color: var(--primary-500);
+    border-color: var(--primary-500);
+  }
+  .ButtonOutlined:hover {
+    background-color: var(--primary-900);
+  }
+}
