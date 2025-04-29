@@ -3,3 +3,5 @@ export * from './pages/SignInPage'
 
 export * from './widgets/SignUpForm'
 export * from './pages/SignUpPage'
+
+export * from './storages/token.storage'
