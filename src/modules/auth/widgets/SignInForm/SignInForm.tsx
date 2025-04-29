@@ -1,8 +1,11 @@
 import { emailSelector, passwordSelector, updateEmailSelector, updatePasswordSelector, useAuthFormStore } from '../../form.store'
+import { defaultHandleHTTPException } from '@/shared/utils/exception'
 import { ChangeEvent, useId } from 'react'
 import { useValidateForm } from '../../hooks/use-validate-form'
+import { defaultHandler } from '@oleksii-pavlov/error-handling'
 import { AuthField } from '../../components/AuthField'
 import { AuthForm } from '../../components/AuthForm'
+import { authAPI } from '../../auth.api'
 import { Button } from '@/shared/components/Button'
 import { Input } from '@/shared/components/Input'
 import styles from './SignInForm.module.css'
@@ -33,11 +36,19 @@ export function SignInForm() {
   } 
 
   function submitForm() {
+    // validate form and add invalids
     validateForm()
 
+    // stop if invalid
     if (!isValid) return
 
-    // TODO add callback
+    // api request
+    authAPI.signUp({ email, password })
+      .then(() => {})
+      .catch(defaultHandleHTTPException({
+        401: () => {},
+        [defaultHandler]: () => {}
+      }))
   }
 
   return (
