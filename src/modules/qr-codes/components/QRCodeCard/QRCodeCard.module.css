@@ -1,0 +1,24 @@
+.QRCodeCard {
+  background-color: var(--white);
+  border-radius: 15px; 
+}
+
+.Image {
+  aspect-ratio: 1;
+}
+
+.Body {
+  padding: 16px;
+}
+
+.Title {
+  color: var(--dark-100);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.Scans {
+  font-size: 14px;
+  color: var(--dark-300);
+}
