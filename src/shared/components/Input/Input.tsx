@@ -5,6 +5,7 @@ import clsx from 'clsx'
 
 interface InputProps extends Customizable, ComponentProps<'input'> {
   block?: boolean
+  invalid?: boolean
   disabled?: boolean
 }
 
@@ -13,6 +14,7 @@ export function Input({
   className,
 
   block, 
+  invalid,
   disabled,
   
   ...props
@@ -20,6 +22,7 @@ export function Input({
   const classNames = clsx(
     styles.Input,
     block && styles.InputBlock,
+    invalid && styles.InputInvalid,
     disabled && styles.InputDisabled,
     ...classList,
     className

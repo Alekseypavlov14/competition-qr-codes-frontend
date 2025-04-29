@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
-interface AuthFormState {
+export interface AuthFormState {
   email: string
   password: string
 }
@@ -11,7 +11,7 @@ interface AuthFormActions {
   reset: () => void
 }
 
-interface AuthFormStore extends AuthFormState, AuthFormActions {}
+export interface AuthFormStore extends AuthFormState, AuthFormActions {}
 
 export const useAuthFormStore = create<AuthFormStore>(set => ({
   email: '',

@@ -28,6 +28,9 @@
   color: var(--dark-700);
   line-height: 1.1;
 }
+.InputInvalid {
+  border: 1px solid var(--failure-color);
+}
 .InputDisabled {
   border-color: var(--dark-700);
   background-color: var(--dark-900);

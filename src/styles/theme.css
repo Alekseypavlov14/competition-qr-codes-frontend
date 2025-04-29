@@ -6,6 +6,7 @@
   --primary-600: #C9FFC9;
   --primary-700: #EAFFED;
   --primary-900: #F2FFF4;
+  
   --dark-100: #002905;
   --dark-300: #3D4A3E;
   --dark-500: #7A7A7A;
@@ -13,8 +14,14 @@
   --dark-800: #CDCDCD;
   --dark-900: #FAFAFA;
   --dark-1000: #FCFCFC;
+
   --white: #FFFFFF;
   --black: #000000;
+  
+  --success-color: #00A30B;
+  --failure-color: #FF3E3E;
+  --medium-color: #FFA600;
+  --info-color: #6797ff;
 
   --gap: 20px;
   --gap-2: calc(2 * var(--gap));
