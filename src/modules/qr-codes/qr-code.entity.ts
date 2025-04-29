@@ -9,4 +9,5 @@ export interface QRCodeDTO {
   content: string
   hash: string
   scans: ScanEntity[]
+  date: string
 }
