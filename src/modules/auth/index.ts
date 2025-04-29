@@ -6,3 +6,5 @@ export * from './pages/SignUpPage'
 
 export * from './storages/token.storage'
 export * from './constants'
+
+export * from './handler/use-auth-handler'

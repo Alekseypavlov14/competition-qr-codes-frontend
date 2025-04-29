@@ -33,11 +33,11 @@ export function SignUpForm() {
   } 
 
   function submitForm() {
+    // validate form and add invalids if needed
     validateForm()
 
+    // if there are errors - stop execution
     if (!isValid) return
-
-    // TODO add callback
   }
 
   return (
