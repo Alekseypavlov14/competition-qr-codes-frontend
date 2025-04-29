@@ -9,7 +9,7 @@ export const httpClient = new HTTPClient({
   middleware: pipe(parseHTTPExceptions),
 })
 
-function parseHTTPExceptions(response: Response) {
+export function parseHTTPExceptions(response: Response) {
   if (!response.ok) throw new HTTPException(response.status)
 
   return response
