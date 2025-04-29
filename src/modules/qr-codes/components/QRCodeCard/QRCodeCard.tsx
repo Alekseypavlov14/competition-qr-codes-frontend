@@ -17,8 +17,15 @@ export function QRCodeCard({ qrCode }: QRCodeCardProps) {
           {qrCode.content}
         </div>
 
+      </div>
+
+      <div className={styles.Footer}>
         <div className={styles.Scans}>
           Scans: {qrCode.scans.length}
+        </div>
+
+        <div className={styles.Date}>
+          {qrCode.date}
         </div>
       </div>
     </div>

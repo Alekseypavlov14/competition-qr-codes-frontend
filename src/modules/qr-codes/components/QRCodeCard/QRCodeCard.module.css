@@ -18,7 +18,18 @@
   line-height: 1.1;
 }
 
+.Footer {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  padding-top: 0;
+}
+
 .Scans {
+  font-size: 14px;
+  color: var(--dark-100);
+}
+.Date {
   font-size: 14px;
   color: var(--dark-300);
 }
