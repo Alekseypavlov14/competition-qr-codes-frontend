@@ -1,11 +1,9 @@
 import { emailSelector, passwordSelector, updateEmailSelector, updatePasswordSelector, useAuthFormStore } from '../../form.store'
-import { defaultHandleHTTPException } from '@/shared/utils/exception'
 import { ChangeEvent, useId } from 'react'
 import { useValidateForm } from '../../hooks/use-validate-form'
-import { defaultHandler } from '@oleksii-pavlov/error-handling'
 import { AuthField } from '../../components/AuthField'
 import { AuthForm } from '../../components/AuthForm'
-import { authAPI } from '../../auth.api'
+import { useAuth } from '../../hooks/use-auth'
 import { Button } from '@/shared/components/Button'
 import { Input } from '@/shared/components/Input'
 import styles from './SignUpForm.module.css'
@@ -28,6 +26,8 @@ export function SignUpForm() {
     errors, 
   } = useValidateForm()
 
+  const { signUp } = useAuth()
+
   function updateEmailHandler(e: ChangeEvent<HTMLInputElement>) {
     updateEmail(e.target.value.trim())
   }
@@ -43,12 +43,7 @@ export function SignUpForm() {
     if (!isValid) return
 
     // api request
-    authAPI.signUp({ email, password })
-      .then(() => {})
-      .catch(defaultHandleHTTPException({
-        401: () => {},
-        [defaultHandler]: () => {}
-      }))
+    signUp({ email, password })
   }
 
   return (
