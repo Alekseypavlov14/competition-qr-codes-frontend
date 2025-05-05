@@ -1,14 +1,16 @@
 import { Credentials } from './types/credentials'
 import { httpClient } from '@/shared/utils/http'
-import { BASE_API } from '@/shared/constants'
+import { saveToken } from './middlewares/save-token'
 
 export class AuthAPI {
-  signIn(credentials: Credentials): Promise<void> {
-    return httpClient.post<Credentials, void>(`${BASE_API}/auth/sign-in`, credentials)
+  async signIn(credentials: Credentials): Promise<void> {
+    httpClient.post<Credentials, Response>(`/auth/sign-in`, credentials, {}, { parse: false })
+      .then(saveToken)
   }
 
-  signUp(credentials: Credentials): Promise<void> {
-    return httpClient.post<Credentials, void>(`${BASE_API}/auth/sign-up`, credentials)
+  async signUp(credentials: Credentials): Promise<void> {
+    httpClient.post<Credentials, Response>(`/auth/sign-up`, credentials, {}, { parse: false })
+      .then(saveToken)
   }
 }
 

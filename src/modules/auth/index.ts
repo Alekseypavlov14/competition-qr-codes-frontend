@@ -11,3 +11,5 @@ export * from './constants'
 export * from './handler/use-auth-handler'
 
 export * from './guards/auth.guard'
+
+export * from './middlewares/save-token'
