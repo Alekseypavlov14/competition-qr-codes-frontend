@@ -1,6 +1,8 @@
 import { emailSelector, passwordSelector, updateEmailSelector, updatePasswordSelector, useAuthFormStore } from '../../form.store'
 import { ChangeEvent, useId } from 'react'
 import { useValidateForm } from '../../hooks/use-validate-form'
+import { useNavigation } from '@/app/navigation'
+import { RedirectLink } from '../../components/RedirectLink'
 import { AuthField } from '../../components/AuthField'
 import { AuthForm } from '../../components/AuthForm'
 import { useAuth } from '../../hooks/use-auth'
@@ -9,6 +11,8 @@ import { Input } from '@/shared/components/Input'
 import styles from './SignUpForm.module.css'
 
 export function SignUpForm() {
+  const { navigateSignInPage } = useNavigation()
+
   const emailInputId = useId()
   const passwordInputId = useId()
 
@@ -90,6 +94,10 @@ export function SignUpForm() {
       <Button block filled onClick={submitForm}>
         Sign up
       </Button>
+
+      <RedirectLink onClick={navigateSignInPage}>
+        Want to login?
+      </RedirectLink>
     </AuthForm>
   )
 }
