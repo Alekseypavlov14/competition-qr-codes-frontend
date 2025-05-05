@@ -1,0 +1,14 @@
+.Grid {
+  --columns: 3;
+
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  gap: var(--gap);
+}
+
+@media (width <= 798px) {
+  .Grid {
+    --columns: 1;
+  }
+}

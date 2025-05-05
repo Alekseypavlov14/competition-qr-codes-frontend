@@ -1,0 +1,1 @@
+export { QRCodesList } from './QRCodesList'
