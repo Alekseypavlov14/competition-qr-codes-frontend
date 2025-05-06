@@ -9,8 +9,8 @@ export function useDisplayQRCode(initial: QRCodeDisplayConfig = {}) {
   
   const printer = new Printer()
 
-  function updateConfig(config: QRCodeDisplayConfig) {
-    setConfig(normalizeConfig(config))
+  function updateConfig(newConfig: QRCodeDisplayConfig) {
+    setConfig(normalizeConfig(config, newConfig))
   }
 
   function display(root: RefObject<Nullable<HTMLElement>>, content: QRCodeContent) {
@@ -26,5 +26,5 @@ export function useDisplayQRCode(initial: QRCodeDisplayConfig = {}) {
     printer.print(content)(container)
   }
 
-  return { updateConfig, display }
+  return { config, updateConfig, display }
 }

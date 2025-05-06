@@ -16,7 +16,13 @@ export function Preview() {
   const lightColor = useQRCodeGenerationCustomizationStore(lightColorSelector)
   const design = useQRCodeGenerationCustomizationStore(designSelector)
 
-  const { display, updateConfig } = useDisplayQRCode()
+  // get drawer
+  const { display, config, updateConfig } = useDisplayQRCode()
+
+  // update config
+  useEffect(() => {
+    updateConfig({ darkColor, lightColor, design })
+  }, [darkColor, lightColor, design])
 
   // revalidate preview
   useEffect(() => {
@@ -25,9 +31,8 @@ export function Preview() {
       minimalErrorCorrection: errorCorrection
     })
 
-    updateConfig({ darkColor, lightColor, design })
     display(containerRef, qrCode)
-  }, [content, darkColor, lightColor, design])
+  }, [content, errorCorrection, config])
 
   return (
     <div className={styles.Preview}>
