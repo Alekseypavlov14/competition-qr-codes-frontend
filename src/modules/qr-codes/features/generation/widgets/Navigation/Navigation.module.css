@@ -1,5 +1,6 @@
 .Navigation {
   display: flex;
   align-items: center;
+  margin-top: var(--gap-2);
   gap: 10px;
 }

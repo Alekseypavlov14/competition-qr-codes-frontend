@@ -6,8 +6,8 @@ export function Steps() {
   const step = useQRCodeGenerationStore(stepSelector)
 
   return (
-    <h5 className={styles.Steps}>
+    <h6 className={styles.Steps}>
       Step {step + 1} of {STEPS_AMOUNT}
-    </h5>
+    </h6>
   )
 }
