@@ -12,6 +12,7 @@ export interface QRCodeGenerationCustomizationActions {
   updateDesign: (design: DesignToken) => void
   updateDarkColor: (darkColor: string) => void
   updateLightColor: (lightColor: string) => void
+  reset: () => void
 }
 
 export interface QRCodeGenerationCustomizationStore
@@ -25,7 +26,9 @@ export const useQRCodeGenerationCustomizationStore = create<QRCodeGenerationCust
 
   updateDesign: (design) => set({ design }),
   updateDarkColor: (darkColor) => set({ darkColor }),
-  updateLightColor: (lightColor) => set({ lightColor })
+  updateLightColor: (lightColor) => set({ lightColor }),
+
+  reset: () => set({ design: designClassic, darkColor: BLACK_COLOR, lightColor: WHITE_COLOR }),
 }))
 
 export const designSelector = (store: QRCodeGenerationCustomizationStore) => store.design
@@ -34,3 +37,4 @@ export const lightColorSelector = (store: QRCodeGenerationCustomizationStore) =>
 export const updateDesignSelector = (store: QRCodeGenerationCustomizationStore) => store.updateDesign
 export const updateDarkColorSelector = (store: QRCodeGenerationCustomizationStore) => store.updateDarkColor
 export const updateLightColorSelector = (store: QRCodeGenerationCustomizationStore) => store.updateLightColor
+export const resetCustomizationSelector = (store: QRCodeGenerationCustomizationStore) => store.reset

@@ -11,6 +11,7 @@ export interface QRCodeGenerationContentActions {
   updateContent: (content: string) => void
   updateErrorCorrection: (errorCorrection: ErrorCorrection) => void
   updateAnalyticsEnabled: (analyticsEnabled: boolean) => void
+  reset: () => void
 }
 
 export interface QRCodeGenerationContentStore extends QRCodeGenerationContentState, QRCodeGenerationContentActions {}
@@ -19,9 +20,12 @@ export const useQRCodeGenerationContentStore = create<QRCodeGenerationContentSto
   content: '',
   errorCorrection: ERROR_CORRECTION_M,
   analyticsEnabled: true,
+
   updateContent: (content) => set({ content }),
   updateErrorCorrection: (errorCorrection) => set({ errorCorrection }),
-  updateAnalyticsEnabled: (analyticsEnabled) => set({ analyticsEnabled })
+  updateAnalyticsEnabled: (analyticsEnabled) => set({ analyticsEnabled }),
+  
+  reset: () => set({ content: '', errorCorrection: ERROR_CORRECTION_M, analyticsEnabled: true }),
 }))
 
 export const contentSelector = (store: QRCodeGenerationContentStore) => store.content
@@ -30,3 +34,4 @@ export const analyticsEnabledSelector = (store: QRCodeGenerationContentStore) =>
 export const updateContentSelector = (store: QRCodeGenerationContentStore) => store.updateContent
 export const updateErrorCorrectionSelector = (store: QRCodeGenerationContentStore) => store.updateErrorCorrection
 export const updateAnalyticsEnabledSelector = (store: QRCodeGenerationContentStore) => store.updateAnalyticsEnabled
+export const resetContentSelector = (store: QRCodeGenerationContentStore) => store.reset
