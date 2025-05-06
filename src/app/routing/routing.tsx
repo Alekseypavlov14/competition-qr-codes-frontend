@@ -1,4 +1,3 @@
-import { QRCodeGenerationResultPage } from '@/pages/QRCodeGenerationResultPage'
 import { SignInPage, SignUpPage } from '@/modules/auth'
 import { QRCodeGenerationPage } from '@/pages/QRCodeGenerationPage'
 import { createBrowserRouter } from 'react-router-dom'
@@ -23,8 +22,4 @@ export const routing = createBrowserRouter([
     path: '/qr-codes/generation',
     element: <QRCodeGenerationPage />
   },
-  {
-    path: '/qr-codes/generation/result',
-    element: <QRCodeGenerationResultPage />
-  }
 ])

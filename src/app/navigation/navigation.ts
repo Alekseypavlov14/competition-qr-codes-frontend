@@ -9,6 +9,5 @@ export function useNavigation() {
 
     navigateHomePage: () => navigate('/'),
     navigateQRCodeGenerationPage: () => navigate('/qr-codes/generation'),
-    navigateQRCodeGenerationResultPage: () => navigate('/qr-codes/generation/result'),
   })
 }

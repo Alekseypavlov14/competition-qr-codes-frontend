@@ -1,13 +1,20 @@
-import { stepSelector, useQRCodeGenerationStore } from '../../stores/generation.store'
+import { isGeneratedSelector, stepSelector, useQRCodeGenerationStore } from '../../stores/generation.store'
 import { QRCodeGenerationStepCustomization } from '../../steps/QRCodeGenerationStepCustomization'
 import { QRCodeGenerationStepContent } from '../../steps/QRCodeGenerationStepContent'
 import { QRCodeGenerationNavigation } from '../QRCodeGenerationNavigation'
 import { QRCodeGenerationPreview } from '../QRCodeGenerationPreview'
+import { QRCodeGenerationResult } from '../QRCodeGenerationResult'
 import { QRCodeGenerationSteps } from '../QRCodeGenerationSteps'
+import { useResetStateOnExit } from '../../hooks/use-reset-state-on-exit'
 import styles from './QRCodeGenerationForm.module.css'
 
 export function QRCodeGenerationForm() {
+  useResetStateOnExit()
+
   const step = useQRCodeGenerationStore(stepSelector)
+  const isGenerated = useQRCodeGenerationStore(isGeneratedSelector)
+
+  if (isGenerated) return <QRCodeGenerationResult />
 
   return (
     <div className={styles.QRCodeGenerationForm}>

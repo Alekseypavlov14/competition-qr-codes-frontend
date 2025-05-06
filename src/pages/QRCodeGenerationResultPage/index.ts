@@ -1,1 +1,0 @@
-export { QRCodeGenerationResultPage } from './QRCodeGenerationResultPage'
