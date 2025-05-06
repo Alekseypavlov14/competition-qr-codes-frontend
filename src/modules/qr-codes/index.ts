@@ -8,3 +8,5 @@ export * from './components/ErrorCorrectionList'
 export * from './components/ErrorCorrectionPalette'
 
 export * from './qr-codes.api'
+
+export * from './features/generation'
