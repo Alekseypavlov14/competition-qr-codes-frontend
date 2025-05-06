@@ -3,6 +3,7 @@ import { SectionTitle } from '@/shared/components/SectionTitle'
 import { QRCodesList } from '@/modules/qr-codes'
 import { AuthGuard } from '@/modules/auth'
 import { Section } from '@/shared/components/Section'
+import { QRCodeForm } from '@/modules/qr-codes/features/generation/widgets/QRCodeForm'
 
 export function HomePage() {
   return (
@@ -11,6 +12,8 @@ export function HomePage() {
         <Section>
           <SectionTitle>QR Codes</SectionTitle>
           <QRCodesList />
+
+          <QRCodeForm />
         </Section>
       </StructureLayout>
     </AuthGuard>

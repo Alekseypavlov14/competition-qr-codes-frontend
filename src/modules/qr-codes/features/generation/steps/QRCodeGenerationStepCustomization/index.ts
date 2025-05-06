@@ -1,0 +1,1 @@
+export { QRCodeGenerationStepCustomization } from './QRCodeGenerationStepCustomization'

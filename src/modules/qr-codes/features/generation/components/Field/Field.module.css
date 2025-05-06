@@ -1,5 +1,6 @@
 .Field {
   display: flex;
+  width: 100%;
 }
 
 .Horizontal {
