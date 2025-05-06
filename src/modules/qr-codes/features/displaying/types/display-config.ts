@@ -7,5 +7,5 @@ export interface QRCodeDisplayConfig {
   design?: DesignToken
   paddingCells?: number
 
-  engine: EngineToken
+  engine?: EngineToken
 }

@@ -45,6 +45,7 @@ export function QRCodeGenerationStepContent() {
             <ErrorCorrectionPalette 
               onClick={() => updateErrorCorrection(errorCorrectionLevel)}
               isSelected={errorCorrectionLevel === errorCorrection}
+              key={errorCorrectionLevel}
             >
               {errorCorrectionPercentageMap[errorCorrectionLevel]}%
             </ErrorCorrectionPalette>

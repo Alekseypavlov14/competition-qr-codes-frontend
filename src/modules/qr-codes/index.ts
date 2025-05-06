@@ -10,3 +10,4 @@ export * from './components/ErrorCorrectionPalette'
 export * from './qr-codes.api'
 
 export * from './features/generation'
+export * from './features/displaying'

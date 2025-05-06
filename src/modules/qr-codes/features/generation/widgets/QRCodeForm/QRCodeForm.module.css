@@ -1,7 +1,27 @@
 .QRCodeForm {
+  width: 100%;
+  display: flex;
+  gap: var(--gap);
+}
+
+.Form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
   width: 100%;
   max-width: 600px;
+  flex: 1 1 auto;
+}
+
+.Preview {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+}
+
+@media (width <= 798px) {
+  .QRCodeForm {
+    flex-direction: column;
+  }
 }
