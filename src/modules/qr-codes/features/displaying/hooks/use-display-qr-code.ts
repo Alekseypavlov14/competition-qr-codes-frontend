@@ -23,7 +23,7 @@ export function useDisplayQRCode(initial: QRCodeDisplayConfig = {}) {
     printer.setPaddingCells(config.paddingCells)
     printer.setOutput(config.engine)  
 
-    printer.print(content)(container)
+    printer.getInjectorByElement(container)(content)
   }
 
   return { config, updateConfig, display }
