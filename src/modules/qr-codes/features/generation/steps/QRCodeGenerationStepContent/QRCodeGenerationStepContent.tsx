@@ -1,5 +1,8 @@
 import { analyticsEnabledSelector, contentSelector, errorCorrectionSelector, updateAnalyticsEnabledSelector, updateContentSelector, updateErrorCorrectionSelector, useQRCodeGenerationContentStore } from '../../stores/content.store'
-import { fieldDirectionHorizontal } from '../../components/Field/constants'
+import { fieldDirectionHorizontal, fieldDirectionVertical } from '../../components/Field/constants'
+import { ErrorCorrectionList, ErrorCorrectionPalette } from '@/modules/qr-codes'
+import { ERROR_CORRECTION_ASCENDING_LIST } from '@oleksii-pavlov/qr-codes'
+import { errorCorrectionPercentageMap } from '../../constants'
 import { ChangeEvent, useId } from 'react'
 import { Switch } from '@/shared/components/Switch'
 import { Input } from '@/shared/components/Input'
@@ -29,8 +32,25 @@ export function QRCodeGenerationStepContent() {
 
       <Input  
         onChange={updateContentHandler}
+        placeholder='https://'
         value={content}
+        block
       />
+
+      <Field direction={fieldDirectionVertical}>
+        <label className='text'>Error Correction Level</label>
+        
+        <ErrorCorrectionList>
+          {ERROR_CORRECTION_ASCENDING_LIST.map(errorCorrectionLevel => (
+            <ErrorCorrectionPalette 
+              onClick={() => updateErrorCorrection(errorCorrectionLevel)}
+              isSelected={errorCorrectionLevel === errorCorrection}
+            >
+              {errorCorrectionPercentageMap[errorCorrectionLevel]}%
+            </ErrorCorrectionPalette>
+          ))}
+        </ErrorCorrectionList>
+      </Field>
 
       <Field direction={fieldDirectionHorizontal}>
         <Switch 
@@ -39,7 +59,10 @@ export function QRCodeGenerationStepContent() {
           checked={analyticsEnabled}
         />
 
-        <label htmlFor={switchEnableAnalyticsId}>
+        <label 
+          htmlFor={switchEnableAnalyticsId}
+          className='text'
+        >
           Enable Analytics
         </label>
       </Field>
