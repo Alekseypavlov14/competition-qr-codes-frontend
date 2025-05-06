@@ -25,7 +25,10 @@ export function QRCodeGenerationResult() {
       minimalErrorCorrection: errorCorrection
     })
 
-    display(containerRef, qrCode)
+    const container = containerRef.current
+    if (!container) return
+
+    display(container, qrCode)
   }
 
   // revalidate preview

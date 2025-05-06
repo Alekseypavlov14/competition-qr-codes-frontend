@@ -26,7 +26,10 @@ export function Preview() {
       minimalErrorCorrection: errorCorrection
     })
 
-    display(containerRef, qrCode)
+    const container = containerRef.current
+    if (!container) return
+
+    display(container, qrCode)
   }
 
   // debounce callback

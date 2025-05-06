@@ -1,8 +1,7 @@
 import { Printer, QRCodeContent } from '@oleksii-pavlov/qr-codes'
 import { QRCodeDisplayConfig } from '../types/display-config'
-import { RefObject, useState } from 'react'
 import { normalizeConfig } from '../utils/normalize-config'
-import { Nullable } from '@/shared/types/nullable'
+import { useState } from 'react'
 
 export function useDisplayQRCode(initial: QRCodeDisplayConfig = {}) {
   const [config, setConfig] = useState<Required<QRCodeDisplayConfig>>(normalizeConfig(initial))
@@ -13,10 +12,7 @@ export function useDisplayQRCode(initial: QRCodeDisplayConfig = {}) {
     setConfig(normalizeConfig(config, newConfig))
   }
 
-  function display(root: RefObject<Nullable<HTMLElement>>, content: QRCodeContent) {
-    const container = root.current
-    if (!container) return
-
+  function display(container: HTMLElement, content: QRCodeContent) {
     printer.setDarkColor(config.darkColor)
     printer.setLightColor(config.lightColor)
     printer.setDesign(config.design)
