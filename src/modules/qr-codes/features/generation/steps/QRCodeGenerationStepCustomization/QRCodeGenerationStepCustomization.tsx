@@ -38,7 +38,7 @@ export function QRCodeGenerationStepCustomization() {
       </Field>
 
       <Field direction={fieldDirectionVertical}>
-        <label htmlFor={lightColorId}>Dark color</label>
+        <label htmlFor={lightColorId}>Light color</label>
         
         <Input 
           id={lightColorId}
