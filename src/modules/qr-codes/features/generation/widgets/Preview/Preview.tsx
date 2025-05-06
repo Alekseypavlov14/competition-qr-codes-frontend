@@ -1,11 +1,14 @@
 import { darkColorSelector, designSelector, lightColorSelector, useQRCodeGenerationCustomizationStore } from '../../stores/customization.store'
 import { contentSelector, errorCorrectionSelector, useQRCodeGenerationContentStore } from '../../stores/content.store'
+import { BLACK_COLOR, WHITE_COLOR } from '@/shared/constants'
 import { useEffect, useRef } from 'react'
 import { useDisplayQRCode } from '@/modules/qr-codes'
+import { useDebounce } from '@/shared/hooks/use-debounce'
 import { QRCode } from '@oleksii-pavlov/qr-codes'
 import styles from './Preview.module.css'
 
 export function Preview() {
+  const { display, config, updateConfig } = useDisplayQRCode()
   const containerRef = useRef<HTMLDivElement>(null)
 
   // state
@@ -16,23 +19,30 @@ export function Preview() {
   const lightColor = useQRCodeGenerationCustomizationStore(lightColorSelector)
   const design = useQRCodeGenerationCustomizationStore(designSelector)
 
-  // get drawer
-  const { display, config, updateConfig } = useDisplayQRCode()
-
-  // update config
-  useEffect(() => {
-    updateConfig({ darkColor, lightColor, design })
-  }, [darkColor, lightColor, design])
-
   // revalidate preview
-  useEffect(() => {
+  function revalidatePreview() {
     const qrCode = QRCode.create({
       message: content,
       minimalErrorCorrection: errorCorrection
     })
 
     display(containerRef, qrCode)
-  }, [content, errorCorrection, config])
+  }
+
+  // debounce callback
+  const debouncedRevalidatePreview = useDebounce(revalidatePreview)
+
+  // update config
+  useEffect(() => {
+    updateConfig({ 
+      darkColor: darkColor || BLACK_COLOR, 
+      lightColor: lightColor || WHITE_COLOR, 
+      design 
+    })
+  }, [darkColor, lightColor, design])
+
+  // revalidate preview
+  useEffect(debouncedRevalidatePreview, [content, errorCorrection, config])
 
   return (
     <div className={styles.Preview}>
