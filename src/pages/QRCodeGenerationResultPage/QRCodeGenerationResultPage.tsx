@@ -1,14 +1,14 @@
-import { QRCodeGenerationForm } from '@/modules/qr-codes'
+import { QRCodeGenerationResult } from '@/modules/qr-codes'
 import { StructureLayout } from '@/layouts/StructureLayout'
 import { AuthGuard } from '@/modules/auth'
 import { Section } from '@/shared/components/Section'
 
-export function QRCodeGenerationPage() {
+export function QRCodeGenerationResultPage() {
   return (
     <AuthGuard>
       <StructureLayout>
         <Section>
-          <QRCodeGenerationForm />
+          <QRCodeGenerationResult />
         </Section>
       </StructureLayout>
     </AuthGuard>

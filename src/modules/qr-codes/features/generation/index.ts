@@ -1,2 +1,2 @@
-export * from './widgets/QRCodeForm'
-export * from './widgets/Result'
+export * from './widgets/QRCodeGenerationForm'
+export * from './widgets/QRCodeGenerationResult'

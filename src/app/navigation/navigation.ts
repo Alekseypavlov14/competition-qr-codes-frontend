@@ -8,6 +8,7 @@ export function useNavigation() {
     navigateSignUpPage: () => navigate('/sign-up'),
 
     navigateHomePage: () => navigate('/'),
-    navigateQRCodeGenerationPage: () => navigate('/qr-codes/generate'),
+    navigateQRCodeGenerationPage: () => navigate('/qr-codes/generation'),
+    navigateQRCodeGenerationResultPage: () => navigate('/qr-codes/generation/result'),
   })
 }

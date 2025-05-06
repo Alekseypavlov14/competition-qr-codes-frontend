@@ -4,13 +4,13 @@ import { QRCodeGenerationStepContent } from '../../steps/QRCodeGenerationStepCon
 import { Navigation } from '../Navigation'
 import { Preview } from '../Preview'
 import { Steps } from '../Steps'
-import styles from './QRCodeForm.module.css'
+import styles from './QRCodeGenerationForm.module.css'
 
-export function QRCodeForm() {
+export function QRCodeGenerationForm() {
   const step = useQRCodeGenerationStore(stepSelector)
 
   return (
-    <div className={styles.QRCodeForm}>
+    <div className={styles.QRCodeGenerationForm}>
       <div className={styles.Form}>
         <Steps />
   

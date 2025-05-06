@@ -2,11 +2,11 @@ import { useQRCodeGenerationCustomizationStore, darkColorSelector, lightColorSel
 import { useQRCodeGenerationContentStore, contentSelector, errorCorrectionSelector } from '../../stores/content.store'
 import { useEffect, useRef } from 'react'
 import { useDisplayQRCode } from '../../../displaying'
-import { QRCode } from '@oleksii-pavlov/qr-codes'
-import styles from './Result.module.css'
 import { Button } from '@/shared/components/Button'
+import { QRCode } from '@oleksii-pavlov/qr-codes'
+import styles from './QRCodeGenerationResult.module.css'
 
-export function Result() {
+export function QRCodeGenerationResult() {
   const containerRef = useRef<HTMLDivElement>(null)
   
   const content = useQRCodeGenerationContentStore(contentSelector)
@@ -32,7 +32,7 @@ export function Result() {
   useEffect(revalidatePreview, [])
 
   return (
-    <div className={styles.Result}>
+    <div className={styles.QRCodeGenerationResult}>
       <h3 className={styles.Title}>Your QR Code is ready!</h3>
 
       <div className={styles.Content}>

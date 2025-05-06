@@ -1,4 +1,4 @@
-.QRCodeForm {
+.QRCodeGenerationForm {
   width: 100%;
   display: flex;
   gap: var(--gap);
@@ -21,7 +21,7 @@
 }
 
 @media (width <= 798px) {
-  .QRCodeForm {
+  .QRCodeGenerationForm {
     flex-direction: column;
   }
 }

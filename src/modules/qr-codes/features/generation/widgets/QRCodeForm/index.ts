@@ -1,1 +1,0 @@
-export { QRCodeForm } from './QRCodeForm'

@@ -1,0 +1,1 @@
+export { QRCodeGenerationForm } from './QRCodeGenerationForm'

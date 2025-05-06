@@ -1,15 +1,15 @@
-import { analyticsEnabledSelector, contentSelector, useQRCodeGenerationContentStore } from '../stores/content.store'
 import { updateIsGeneratedSelector, useQRCodeGenerationStore } from '../stores/generation.store'
+import { useNavigation } from '@/app/navigation'
 
 // TODO
 export function useGenerateQRCode() {
-  const content = useQRCodeGenerationContentStore(contentSelector)
-  const analyticsEnabled = useQRCodeGenerationContentStore(analyticsEnabledSelector)
+  const { navigateQRCodeGenerationResultPage } = useNavigation()
   
   const updateIsGenerated = useQRCodeGenerationStore(updateIsGeneratedSelector)
 
   function generateQRCode() {
     updateIsGenerated(true)
+    navigateQRCodeGenerationResultPage()
   }
 
   return generateQRCode
