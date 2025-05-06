@@ -1,0 +1,11 @@
+.QRCodePreview {
+  --size: 300px;
+  
+  width: var(--size);
+  height: var(--size);
+  flex: 0 0 var(--size);
+
+  background-color: var(--dark-800);
+  border-radius: 15px;
+  overflow: hidden;
+}
