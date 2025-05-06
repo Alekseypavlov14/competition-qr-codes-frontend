@@ -1,23 +1,23 @@
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, ComponentProps, useState } from 'react'
 import { clsx } from 'clsx'
 import styles from './Switch.module.css'
 
-interface SwitchProps {
-  checked?: boolean
-  onChange?: (checked: boolean) => void
-  className?: string
+interface SwitchProps extends ComponentProps<'input'> {
+  onSwitch?: (checked: boolean) => void
 }
 
 export function Switch({ 
-  checked = false, 
+  checked,
+  onSwitch = () => {},
   onChange = () => {}, 
   className 
 }: SwitchProps) {
-  const [internalChecked, setInternalChecked] = useState(checked)
+  const [internalChecked, setInternalChecked] = useState(Boolean(checked))
 
   function updateCheckedHandler(e: ChangeEvent<HTMLInputElement>) {
     setInternalChecked(e.target.checked)
-    onChange(e.target.checked)
+    onSwitch(e.target.checked)
+    onChange(e)
   }
 
   return (
