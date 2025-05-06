@@ -1,0 +1,1 @@
+export { QRCodeGenerationNavigation } from './QRCodeGenerationNavigation'

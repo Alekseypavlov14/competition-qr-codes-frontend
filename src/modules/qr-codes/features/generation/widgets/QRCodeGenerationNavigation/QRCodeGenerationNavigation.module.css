@@ -1,4 +1,4 @@
-.Navigation {
+.QRCodeGenerationNavigation {
   display: flex;
   align-items: center;
   margin-top: var(--gap-2);

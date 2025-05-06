@@ -5,9 +5,9 @@ import { useEffect, useRef } from 'react'
 import { useDisplayQRCode } from '@/modules/qr-codes'
 import { useDebounce } from '@/shared/hooks/use-debounce'
 import { QRCode } from '@oleksii-pavlov/qr-codes'
-import styles from './Preview.module.css'
+import styles from './QRCodeGenerationPreview.module.css'
 
-export function Preview() {
+export function QRCodeGenerationPreview() {
   const { display, config, updateConfig } = useDisplayQRCode()
   const containerRef = useRef<HTMLDivElement>(null)
 
@@ -48,7 +48,7 @@ export function Preview() {
   useEffect(debouncedRevalidatePreview, [content, errorCorrection, config])
 
   return (
-    <div className={styles.Preview}>
+    <div className={styles.QRCodeGenerationPreview}>
       <div 
         className={styles.Container}
         ref={containerRef}

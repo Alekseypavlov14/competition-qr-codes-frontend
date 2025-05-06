@@ -2,9 +2,9 @@ import { decrementStepSelector, incrementStepSelector, stepSelector, useQRCodeGe
 import { useGenerateQRCode } from '../../hooks/use-generate-qr-code'
 import { STEPS_AMOUNT } from '../../constants'
 import { Button } from '@/shared/components/Button'
-import styles from './Navigation.module.css'
+import styles from './QRCodeGenerationNavigation.module.css'
 
-export function Navigation() {
+export function QRCodeGenerationNavigation() {
   const step = useQRCodeGenerationStore(stepSelector)
   const incrementStep = useQRCodeGenerationStore(incrementStepSelector)
   const decrementStep = useQRCodeGenerationStore(decrementStepSelector)
@@ -16,7 +16,7 @@ export function Navigation() {
   const isLastStep = step === STEPS_AMOUNT - 1
 
   return (
-    <div className={styles.Navigation}>
+    <div className={styles.QRCodeGenerationNavigation}>
       {!isFirstStep ? (
         <Button onClick={decrementStep}>Back</Button>
       ) : null}

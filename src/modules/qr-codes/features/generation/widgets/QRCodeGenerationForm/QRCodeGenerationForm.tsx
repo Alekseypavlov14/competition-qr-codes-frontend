@@ -1,9 +1,9 @@
 import { stepSelector, useQRCodeGenerationStore } from '../../stores/generation.store'
 import { QRCodeGenerationStepCustomization } from '../../steps/QRCodeGenerationStepCustomization'
 import { QRCodeGenerationStepContent } from '../../steps/QRCodeGenerationStepContent'
-import { Navigation } from '../Navigation'
-import { Preview } from '../Preview'
-import { Steps } from '../Steps'
+import { QRCodeGenerationNavigation } from '../QRCodeGenerationNavigation'
+import { QRCodeGenerationPreview } from '../QRCodeGenerationPreview'
+import { QRCodeGenerationSteps } from '../QRCodeGenerationSteps'
 import styles from './QRCodeGenerationForm.module.css'
 
 export function QRCodeGenerationForm() {
@@ -12,18 +12,18 @@ export function QRCodeGenerationForm() {
   return (
     <div className={styles.QRCodeGenerationForm}>
       <div className={styles.Form}>
-        <Steps />
+        <QRCodeGenerationSteps />
   
         {[
           <QRCodeGenerationStepContent />,
           <QRCodeGenerationStepCustomization />
         ][step]}
   
-        <Navigation />
+        <QRCodeGenerationNavigation />
       </div>
       
       <div className={styles.Preview}>
-        <Preview />
+        <QRCodeGenerationPreview />
       </div>
     </div>
   )
