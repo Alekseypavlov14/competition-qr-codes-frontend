@@ -4,8 +4,10 @@ export function useNavigation() {
   const navigate = useNavigate()
 
   return ({
-    navigateHomePage: () => navigate('/'),
     navigateSignInPage: () => navigate('/sign-in'),
     navigateSignUpPage: () => navigate('/sign-up'),
+
+    navigateHomePage: () => navigate('/'),
+    navigateQRCodeGenerationPage: () => navigate('/qr-codes/generate'),
   })
 }

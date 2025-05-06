@@ -1,4 +1,5 @@
 import { SignInPage, SignUpPage } from '@/modules/auth'
+import { QRCodeGenerationPage } from '@/pages/QRCodeGenerationPage'
 import { createBrowserRouter } from 'react-router-dom'
 import { HomePage } from '@/pages/HomePage'
 
@@ -15,5 +16,9 @@ export const routing = createBrowserRouter([
   {
     path: '/',
     element: <HomePage />
+  },
+  {
+    path: '/qr-codes/generate',
+    element: <QRCodeGenerationPage />
   }
 ])
