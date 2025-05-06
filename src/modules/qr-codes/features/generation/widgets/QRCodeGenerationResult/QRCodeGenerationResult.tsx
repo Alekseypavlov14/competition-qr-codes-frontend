@@ -19,7 +19,7 @@ export function QRCodeGenerationResult() {
   const { display } = useDisplayQRCode({ darkColor, lightColor, design })
 
   // revalidate preview
-  function revalidatePreview() {
+  function displayPreview() {
     const qrCode = QRCode.create({
       message: content,
       minimalErrorCorrection: errorCorrection
@@ -32,7 +32,7 @@ export function QRCodeGenerationResult() {
   }
 
   // revalidate preview
-  useEffect(revalidatePreview, [])
+  useEffect(displayPreview, [])
 
   return (
     <div className={styles.QRCodeGenerationResult}>
