@@ -15,7 +15,7 @@ export interface QRCodeGenerationContentActions {
 
 export interface QRCodeGenerationContentStore extends QRCodeGenerationContentState, QRCodeGenerationContentActions {}
 
-export const useQRCodeGenerationFormStore = create<QRCodeGenerationContentStore>(set => ({
+export const useQRCodeGenerationContentStore = create<QRCodeGenerationContentStore>(set => ({
   content: '',
   errorCorrection: ERROR_CORRECTION_M,
   analyticsEnabled: true,
