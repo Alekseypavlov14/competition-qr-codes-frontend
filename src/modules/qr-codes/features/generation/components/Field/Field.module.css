@@ -1,0 +1,14 @@
+.Field {
+  display: flex;
+}
+
+.Horizontal {
+  align-items: center;
+  gap: 10px;
+}
+
+.Vertical {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
