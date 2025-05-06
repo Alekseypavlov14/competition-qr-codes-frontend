@@ -44,6 +44,9 @@ export function QRCodePreview({
   // debounced version
   const debouncedRevalidatePreview = useDebounce(revalidatePreview)
 
+  // initial load
+  useEffect(revalidatePreview, [])
+
   // update styles
   useEffect(() => {
     updateConfig({ darkColor, lightColor, design })

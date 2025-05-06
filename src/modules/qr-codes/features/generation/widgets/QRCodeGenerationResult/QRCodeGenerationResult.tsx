@@ -14,7 +14,7 @@ export function QRCodeGenerationResult() {
 
   return (
     <div className={styles.QRCodeGenerationResult}>
-      <h3 className={styles.Title}>Your QR Code is ready!</h3>
+      <h4 className={styles.Title}>Your QR Code is ready!</h4>
 
       <div className={styles.Content}>
         <QRCodePreview 
