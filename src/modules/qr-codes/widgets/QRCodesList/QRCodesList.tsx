@@ -1,3 +1,4 @@
+import { GridFallback } from '@/shared/components/GridFallback'
 import { QRCodeCard } from '../../components/QRCodeCard'
 import { useQRCodes } from '../../hooks/use-qr-codes'
 import { Grid } from '@/shared/components/Grid'
@@ -17,6 +18,10 @@ export function QRCodesList() {
           key={index}
         />
       ))}
+
+      {qrCodes.length === 0 ? (
+        <GridFallback>No QR Codes found</GridFallback>
+      ) : null}
     </Grid>
   )
 }

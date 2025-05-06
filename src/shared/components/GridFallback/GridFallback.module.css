@@ -1,0 +1,21 @@
+.GridFallback {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark-500);
+  font-size: 20px;
+  font-weight: 500;
+  grid-column: 1 / -1;
+}
+
+.PaddingSmall {
+  padding: calc(var(--gap) * 0.5) 0px;
+}
+.PaddingMedium {
+  padding: var(--gap) 0px;
+}
+.PaddingBig {
+  padding: calc(var(--gap) * 2) 0px;
+}
+
