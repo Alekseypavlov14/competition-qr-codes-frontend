@@ -10,7 +10,8 @@ export function Switch({
   checked,
   onSwitch = () => {},
   onChange = () => {}, 
-  className 
+  className,
+  ...props 
 }: SwitchProps) {
   const [internalChecked, setInternalChecked] = useState(Boolean(checked))
 
@@ -26,6 +27,7 @@ export function Switch({
         type="checkbox"
         checked={internalChecked}
         onChange={updateCheckedHandler}
+        {...props}
       />
       <span className={styles.Track}>
         <span className={styles.Handle} />
