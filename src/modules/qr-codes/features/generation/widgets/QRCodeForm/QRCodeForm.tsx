@@ -9,17 +9,15 @@ import styles from './QRCodeForm.module.css'
 export function QRCodeForm() {
   const step = useQRCodeGenerationStore(stepSelector)
 
-  const stepForms = [
-    <QRCodeGenerationStepContent />,
-    <QRCodeGenerationStepCustomization />
-  ]
-
   return (
     <div className={styles.QRCodeForm}>
       <div className={styles.Form}>
         <Steps />
   
-        {stepForms[step]}
+        {[
+          <QRCodeGenerationStepContent />,
+          <QRCodeGenerationStepCustomization />
+        ][step]}
   
         <Navigation />
       </div>
