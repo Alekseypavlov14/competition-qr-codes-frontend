@@ -21,7 +21,8 @@ export function QRCodeGenerationPreview() {
         design={design}
       />
 
-      <div className={styles.Caption}>Preview</div>
+      <div className={styles.Caption}>Final QR Code available after form completion</div>
+      <div className={styles.Caption}>The view differs depending on analytics status.</div>
     </div>
   )
 }
