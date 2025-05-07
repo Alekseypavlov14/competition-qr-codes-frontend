@@ -19,6 +19,7 @@ export function QRCodeGenerationPreview() {
         darkColor={darkColor}
         lightColor={lightColor}
         design={design}
+        debounce
       />
 
       <div className={styles.Caption}>Final QR Code available after form completion</div>

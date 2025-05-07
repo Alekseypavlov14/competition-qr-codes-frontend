@@ -1,0 +1,40 @@
+.Loader {
+  border: 3px solid transparent;
+  border-top-color: var(--loader-color);
+  border-radius: 50%;
+  animation: rotate 0.8s linear infinite;
+  box-sizing: border-box;
+}
+
+/* Size options */
+.Small {
+  --loader-size: 20px;
+  width: var(--loader-size);
+  height: var(--loader-size);
+}
+
+.Medium {
+  --loader-size: 24px;
+  width: var(--loader-size);
+  height: var(--loader-size);
+}
+
+.Big {
+  --loader-size: 28px;
+  width: var(--loader-size);
+  height: var(--loader-size);
+}
+
+/* Color options */
+.Base {
+  --loader-color: var(--dark-500);
+}
+
+.Primary {
+  --loader-color: var(--primary-100);
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg) }
+  100% { transform: rotate(360deg) }
+}

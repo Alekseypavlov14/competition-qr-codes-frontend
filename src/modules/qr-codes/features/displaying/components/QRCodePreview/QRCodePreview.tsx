@@ -15,6 +15,7 @@ interface QRCodePreviewProps extends ComponentProps<'div'> {
   design?: DesignToken
 
   responsive?: boolean
+  debounce?: boolean
 }
 
 export function QRCodePreview({ 
@@ -25,6 +26,7 @@ export function QRCodePreview({
   design = designClassic,
 
   responsive = false,
+  debounce = false,
 
   className,
   children,
@@ -49,16 +51,16 @@ export function QRCodePreview({
   // debounced version
   const debouncedRevalidatePreview = useDebounce(revalidatePreview)
 
-  // initial load
-  useEffect(revalidatePreview, [])
-
   // update styles
   useEffect(() => {
     updateConfig({ darkColor, lightColor, design })
   }, [darkColor, lightColor, design])
 
   // update content
-  useEffect(debouncedRevalidatePreview, [content, errorCorrection, config])
+  useEffect(() => {
+    if (debounce) return debouncedRevalidatePreview()
+    revalidatePreview()
+  }, [content, errorCorrection, config])
 
   return (
     <div 
