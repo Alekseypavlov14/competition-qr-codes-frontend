@@ -1,0 +1,1 @@
+export { QRCodeDesignPaletteList } from './QRCodeDesignPaletteList'

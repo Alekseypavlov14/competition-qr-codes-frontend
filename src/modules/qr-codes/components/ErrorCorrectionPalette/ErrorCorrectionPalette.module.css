@@ -21,8 +21,7 @@
 }
 
 .Selected {
-  background-color: var(--primary-700);
-  color: var(--primary-100);
+  background-color: var(--primary-600);
 }
 
 @media (width <= 798px) {

@@ -1,9 +1,12 @@
-import { darkColorSelector, lightColorSelector, updateDarkColorSelector, updateLightColorSelector, useQRCodeGenerationCustomizationStore } from '../../stores/customization.store'
+import { darkColorSelector, designSelector, lightColorSelector, updateDarkColorSelector, updateDesignSelector, updateLightColorSelector, useQRCodeGenerationCustomizationStore } from '../../stores/customization.store'
+import { QRCodeDesignPaletteList } from '../../components/QRCodeDesignPaletteList'
 import { fieldDirectionVertical } from '../../components/Field/constants'
+import { QRCodeDesignPalette } from '../../components/QRCodeDesignPalette'
 import { ChangeEvent, useId } from 'react'
+import { designsList } from '@oleksii-pavlov/qr-codes'
+import { Input } from '@/shared/components/Input'
 import { Field } from '../../components/Field'
 import { Form } from '../../components/Form'
-import { Input } from '@/shared/components/Input'
 
 export function QRCodeGenerationStepCustomization() {
   const darkColorId = useId()
@@ -11,10 +14,12 @@ export function QRCodeGenerationStepCustomization() {
 
   const darkColor = useQRCodeGenerationCustomizationStore(darkColorSelector)
   const lightColor = useQRCodeGenerationCustomizationStore(lightColorSelector)
+  const design = useQRCodeGenerationCustomizationStore(designSelector)
 
   const updateDarkColor = useQRCodeGenerationCustomizationStore(updateDarkColorSelector)
   const updateLightColor = useQRCodeGenerationCustomizationStore(updateLightColorSelector)
-  
+  const updateDesign = useQRCodeGenerationCustomizationStore(updateDesignSelector)
+
   function updateDarkColorHandler(e: ChangeEvent<HTMLInputElement>) {
     updateDarkColor(e.target.value.trim())
   }
@@ -46,7 +51,18 @@ export function QRCodeGenerationStepCustomization() {
           onChange={updateLightColorHandler}
           block
         />
-      </Field>      
+      </Field>
+
+      <QRCodeDesignPaletteList>
+        {designsList.map(designOption => (
+          <QRCodeDesignPalette 
+            design={designOption}
+            onClick={() => updateDesign(designOption)} 
+            isSelected={design === designOption}
+            key={designOption}
+          />
+        ))}
+      </QRCodeDesignPaletteList>
     </Form>
   )
 }
