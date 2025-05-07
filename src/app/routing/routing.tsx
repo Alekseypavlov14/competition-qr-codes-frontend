@@ -1,3 +1,4 @@
+import { QRCodeAnalyticsRedirect } from '@/modules/qr-codes'
 import { SignInPage, SignUpPage } from '@/modules/auth'
 import { QRCodeGenerationPage } from '@/pages/QRCodeGenerationPage'
 import { createBrowserRouter } from 'react-router-dom'
@@ -22,4 +23,9 @@ export const routing = createBrowserRouter([
     path: '/qr-codes/generation',
     element: <QRCodeGenerationPage />
   },
+
+  {
+    path: '/go/:hash',
+    element: <QRCodeAnalyticsRedirect />
+  }
 ])

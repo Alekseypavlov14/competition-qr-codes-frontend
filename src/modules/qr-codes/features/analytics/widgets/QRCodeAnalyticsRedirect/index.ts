@@ -1,0 +1,1 @@
+export { QRCodeAnalyticsRedirect } from './QRCodeAnalyticsRedirect'
