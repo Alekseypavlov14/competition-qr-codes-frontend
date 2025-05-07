@@ -22,7 +22,8 @@ export function QRCodeGenerationPreview() {
       />
 
       <div className={styles.Caption}>Final QR Code available after form completion</div>
-      <div className={styles.Caption}>The view differs depending on analytics status.</div>
+      <div className={styles.Caption}>The view differs depending on analytics status</div>
+      <div className={styles.Caption}>QR Codes with analytics enabled mostly look better</div>
     </div>
   )
 }
