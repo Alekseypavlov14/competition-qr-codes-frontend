@@ -20,7 +20,7 @@ export function QRCodeGenerationForm() {
     <div className={styles.QRCodeGenerationForm}>
       <div className={styles.Form}>
         <QRCodeGenerationSteps />
-  
+
         {[
           <QRCodeGenerationStepContent />,
           <QRCodeGenerationStepCustomization />
