@@ -1,5 +1,5 @@
 import { formatDateFull, mapISOStringToDate } from '@/shared/utils/datetime'
-import { QRCodeEntity } from '../../qr-code.entity'
+import { QRCodeEntity } from '../../../../qr-code.entity'
 import styles from './QRCodeCard.module.css'
 
 interface QRCodeCardProps {

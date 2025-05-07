@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
-import { QRCodeEntity } from '../qr-code.entity'
-import { qrCodesAPI } from '../qr-codes.api'
+import { qrCodesFeedAPI } from '../qr-codes-feed.api'
+import { QRCodeEntity } from '@/modules/qr-codes'
 
 export function useQRCodes() {
   const [qrCodes, setQRCodes] = useState<QRCodeEntity[]>([])
 
   useEffect(() => {
-    qrCodesAPI.getAll()
+    qrCodesFeedAPI.getAll()
       .then(qrCodes => {
         setQRCodes(qrCodes)
       })
