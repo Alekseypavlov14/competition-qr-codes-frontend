@@ -11,21 +11,20 @@ export function useGenerateQRCode() {
   const updateIsGenerated = useQRCodeGenerationStore(updateIsGeneratedSelector)
   const updateHash = useQRCodeResultStore(updateHashSelector)
 
-  function generateQRCode() {
-    // update flags
-    updateIsGenerated(true)
-
+  async function generateQRCode() {
     // handle analytics-enabled qr codes
-    if (analyticsEnabled) createQRCodeWithAnalytics()
+    if (analyticsEnabled) await createQRCodeWithAnalytics()
+
+    updateIsGenerated(true)
   }
 
   // for analytics-enabled qr codes
-  function createQRCodeWithAnalytics() {
+  async function createQRCodeWithAnalytics() {
     // get current moment
     const date = mapDateToISOString(new Date())
     
     // api request
-    qrCodeGenerationAPI.create({ content, date })
+    await qrCodeGenerationAPI.create({ content, date })
       .then(qrCode => updateHash(qrCode.hash))
   }
 
