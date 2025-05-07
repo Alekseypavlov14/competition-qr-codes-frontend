@@ -1,3 +1,4 @@
+import { formatDateFull, mapISOStringToDate } from '@/shared/utils/datetime'
 import { QRCodeEntity } from '../../qr-code.entity'
 import styles from './QRCodeCard.module.css'
 
@@ -25,7 +26,7 @@ export function QRCodeCard({ qrCode }: QRCodeCardProps) {
         </div>
 
         <div className={styles.Date}>
-          {qrCode.date}
+          {formatDateFull(mapISOStringToDate(qrCode.date).getTime())}
         </div>
       </div>
     </div>
