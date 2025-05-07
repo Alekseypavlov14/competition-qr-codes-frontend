@@ -9,6 +9,7 @@ import { Switch } from '@/shared/components/Switch'
 import { Input } from '@/shared/components/Input'
 import { Field } from '../../components/Field'
 import { Form } from '../../components/Form'
+import { Hint } from '../../components/Hint'
 
 export function QRCodeGenerationStepContent() {
   const switchEnableAnalyticsId = useId()
@@ -68,6 +69,11 @@ export function QRCodeGenerationStepContent() {
           Enable Analytics
         </label>
       </Field>
+
+      <Hint> 
+        QR Codes without analytics are not saved.<br />
+        Use it only for QR Code image generation
+      </Hint>
     </Form>
   )
 }
