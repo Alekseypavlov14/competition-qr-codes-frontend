@@ -17,7 +17,6 @@ export function QRCodeCard({ qrCode }: QRCodeCardProps) {
         <div className={styles.Title}>
           {qrCode.content}
         </div>
-
       </div>
 
       <div className={styles.Footer}>

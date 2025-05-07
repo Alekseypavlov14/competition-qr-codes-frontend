@@ -4,8 +4,8 @@ export * from './scan.entity'
 export * from './widgets/QRCodesList'
 
 export * from './components/QRCodeCard'
-export * from './components/ErrorCorrectionList'
-export * from './components/ErrorCorrectionPalette'
+export * from './features/generation/components/ErrorCorrectionList'
+export * from './features/generation/components/ErrorCorrectionPalette'
 
 export * from './qr-codes.api'
 
