@@ -25,7 +25,7 @@ export function QRCodeGenerationStepContent() {
   function updateContentHandler(e: ChangeEvent<HTMLInputElement>) {
     updateContent(e.target.value.trim())
   }
-   
+
   return (
     <Form>
       <h3>Create QR Code</h3>

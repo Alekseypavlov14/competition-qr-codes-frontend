@@ -3,16 +3,22 @@ import { resetContentSelector, useQRCodeGenerationContentStore } from '../stores
 import { resetGenerationSelector, useQRCodeGenerationStore } from '../stores/generation.store'
 import { useEffect } from 'react'
 
-export function useResetStateOnExit() {
+export function useResetState() {
   const resetContent = useQRCodeGenerationContentStore(resetContentSelector)
   const resetCustomization = useQRCodeGenerationCustomizationStore(resetCustomizationSelector)
   const resetGeneration = useQRCodeGenerationStore(resetGenerationSelector)
 
+  function reset() {
+    resetContent()
+    resetCustomization()
+    resetGeneration()
+  }
+
   useEffect(() => {
+    reset()
+
     return () => {
-      resetContent()
-      resetCustomization()
-      resetGeneration()
+      reset()
     }
   }, [])
 }

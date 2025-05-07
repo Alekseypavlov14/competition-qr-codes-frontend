@@ -5,11 +5,11 @@ import { QRCodeGenerationNavigation } from '../QRCodeGenerationNavigation'
 import { QRCodeGenerationPreview } from '../QRCodeGenerationPreview'
 import { QRCodeGenerationResult } from '../QRCodeGenerationResult'
 import { QRCodeGenerationSteps } from '../QRCodeGenerationSteps'
-import { useResetStateOnExit } from '../../hooks/use-reset-state-on-exit'
+import { useResetState } from '../../hooks/use-reset-state'
 import styles from './QRCodeGenerationForm.module.css'
 
 export function QRCodeGenerationForm() {
-  useResetStateOnExit()
+  useResetState()
 
   const step = useQRCodeGenerationStore(stepSelector)
   const isGenerated = useQRCodeGenerationStore(isGeneratedSelector)
