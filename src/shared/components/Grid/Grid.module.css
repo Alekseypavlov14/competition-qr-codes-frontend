@@ -9,6 +9,12 @@
 
 @media (width <= 798px) {
   .Grid {
-    --columns: 1;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 450px) {
+  .Grid {
+    grid-template-columns: 1fr;
   }
 }
