@@ -1,5 +1,6 @@
-import { DesignToken, ErrorCorrection, QRCode } from '@oleksii-pavlov/qr-codes'
+import { designClassic, DesignToken, ERROR_CORRECTION_M, ErrorCorrection, QRCode } from '@oleksii-pavlov/qr-codes'
 import { ComponentProps, useEffect, useRef } from 'react'
+import { BLACK_COLOR, WHITE_COLOR } from '@/shared/constants'
 import { useDisplayQRCode } from '../../hooks/use-display-qr-code'
 import { useDebounce } from '@/shared/hooks/use-debounce'
 import styles from './QRCodePreview.module.css'
@@ -7,19 +8,23 @@ import clsx from 'clsx'
 
 interface QRCodePreviewProps extends ComponentProps<'div'> {
   content: string
-  errorCorrection: ErrorCorrection
+  errorCorrection?: ErrorCorrection
+  
+  darkColor?: string
+  lightColor?: string
+  design?: DesignToken
 
-  darkColor: string
-  lightColor: string
-  design: DesignToken
+  responsive?: boolean
 }
 
 export function QRCodePreview({ 
   content,  
-  errorCorrection,
-  darkColor,
-  lightColor,
-  design,
+  errorCorrection = ERROR_CORRECTION_M,
+  darkColor = BLACK_COLOR,
+  lightColor = WHITE_COLOR,
+  design = designClassic,
+
+  responsive = false,
 
   className,
   children,
@@ -57,7 +62,7 @@ export function QRCodePreview({
 
   return (
     <div 
-      className={clsx(styles.QRCodePreview, className)}
+      className={clsx(styles.QRCodePreview, responsive && styles.Responsive, className)}
       ref={containerRef}
       {...props}
     >

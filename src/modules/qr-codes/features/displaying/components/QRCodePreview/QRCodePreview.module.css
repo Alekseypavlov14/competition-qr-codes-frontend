@@ -9,3 +9,7 @@
   border-radius: 15px;
   overflow: hidden;
 }
+
+.Responsive {
+  --size: 100%;
+}

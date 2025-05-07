@@ -1,5 +1,5 @@
 import { formatDateFull, mapISOStringToDate } from '@/shared/utils/datetime'
-import { QRCodeEntity } from '../../../../qr-code.entity'
+import { QRCodeEntity, QRCodePreview } from '@/modules/qr-codes'
 import styles from './QRCodeCard.module.css'
 
 interface QRCodeCardProps {
@@ -10,7 +10,10 @@ export function QRCodeCard({ qrCode }: QRCodeCardProps) {
   return (
     <div className={styles.QRCodeCard}>
       <div className={styles.Image}>
-
+        <QRCodePreview 
+          content={qrCode.content}
+          responsive
+        />
       </div>
 
       <div className={styles.Body}>
