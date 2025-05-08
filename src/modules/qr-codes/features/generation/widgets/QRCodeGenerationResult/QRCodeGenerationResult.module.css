@@ -13,6 +13,7 @@
 .Content {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: var(--gap);
 }
 
@@ -29,6 +30,7 @@
 }
 
 .Downloads {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--gap);
