@@ -8,3 +8,9 @@ export const errorCorrectionPercentageMap = {
   [ERROR_CORRECTION_Q]: 25,
   [ERROR_CORRECTION_H]: 30,
 } as const
+
+export type ResultLoadingState = 'none' | 'loading' | 'done'
+
+export const resultLoadingStateNone: ResultLoadingState = 'none'
+export const resultLoadingStateLoading: ResultLoadingState = 'loading'
+export const resultLoadingStateDone: ResultLoadingState = 'done'

@@ -1,28 +1,22 @@
-import { analyticsEnabledSelector, contentSelector, errorCorrectionSelector, updateAnalyticsEnabledSelector, updateContentSelector, updateErrorCorrectionSelector, useQRCodeGenerationContentStore } from '../../stores/content.store'
-import { fieldDirectionHorizontal, fieldDirectionVertical } from '../../components/Field/constants'
+import { contentSelector, errorCorrectionSelector, updateContentSelector, updateErrorCorrectionSelector, useQRCodeGenerationContentStore } from '../../stores/content.store'
 import { ERROR_CORRECTION_ASCENDING_LIST } from '@oleksii-pavlov/qr-codes'
 import { errorCorrectionPercentageMap } from '../../constants'
 import { ErrorCorrectionPalette } from '../../components/ErrorCorrectionPalette'
+import { fieldDirectionVertical } from '../../components/Field/constants'
 import { ErrorCorrectionList } from '../../components/ErrorCorrectionList'
-import { ChangeEvent, useId } from 'react'
-import { Switch } from '@/shared/components/Switch'
+import { ChangeEvent } from 'react'
 import { Input } from '@/shared/components/Input'
 import { Field } from '../../components/Field'
 import { Form } from '../../components/Form'
-import { Hint } from '../../components/Hint'
 
 export function QRCodeGenerationStepContent() {
-  const switchEnableAnalyticsId = useId()
-
   // state
   const content = useQRCodeGenerationContentStore(contentSelector)
   const errorCorrection = useQRCodeGenerationContentStore(errorCorrectionSelector)
-  const analyticsEnabled = useQRCodeGenerationContentStore(analyticsEnabledSelector)
   
   // actions
   const updateContent = useQRCodeGenerationContentStore(updateContentSelector)
   const updateErrorCorrection = useQRCodeGenerationContentStore(updateErrorCorrectionSelector)
-  const updateAnalyticsEnabled = useQRCodeGenerationContentStore(updateAnalyticsEnabledSelector)
 
   function updateContentHandler(e: ChangeEvent<HTMLInputElement>) {
     updateContent(e.target.value.trim())
@@ -54,26 +48,6 @@ export function QRCodeGenerationStepContent() {
           ))}
         </ErrorCorrectionList>
       </Field>
-
-      <Field direction={fieldDirectionHorizontal}>
-        <Switch 
-          id={switchEnableAnalyticsId} 
-          onSwitch={updateAnalyticsEnabled}
-          checked={analyticsEnabled}
-        />
-
-        <label 
-          htmlFor={switchEnableAnalyticsId}
-          className='text'
-        >
-          Enable Analytics
-        </label>
-      </Field>
-
-      <Hint> 
-        QR Codes without analytics are not saved.<br />
-        Use it only for QR Code image generation
-      </Hint>
     </Form>
   )
 }
