@@ -1,5 +1,6 @@
 import { PrinterConfig, DownloaderConfig, FileType, Downloader, Printer, QRCodeContent } from '@oleksii-pavlov/qr-codes'
 import { useEffect, useState } from 'react'
+import { mapFileTypeToPrinterOutput } from '../constants'
 
 export function useDownloadQRCode() {
   const [printerConfig, setPrinterConfig] = useState<Partial<PrinterConfig>>({})
@@ -33,6 +34,7 @@ export function useDownloadQRCode() {
   }
 
   function download(content: QRCodeContent, fileType: FileType) {
+    printer.setOutput(mapFileTypeToPrinterOutput[fileType])
     const element = printer.print(content)
 
     downloader.setFileType(fileType)

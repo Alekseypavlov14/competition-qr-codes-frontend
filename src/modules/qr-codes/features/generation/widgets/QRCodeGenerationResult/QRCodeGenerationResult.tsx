@@ -3,11 +3,12 @@ import { FileType, fileTypeJPEG, fileTypePNG, fileTypeSVG, fileTypeWebp, QRCode 
 import { useQRCodeGenerationContentStore, errorCorrectionSelector } from '../../stores/content.store'
 import { getFileNameByContent, useDownloadQRCode } from '@/modules/qr-codes'
 import { useQRCodeResultContent } from '../../hooks/use-qr-code-result-content'
+import { useNotifications } from '@/app/notifications'
 import { QRCodePreview } from '@/modules/qr-codes'
 import { useEffect } from 'react'
 import { Button } from '@/shared/components/Button'
-import styles from './QRCodeGenerationResult.module.css'
 import { Hint } from '../../components/Hint'
+import styles from './QRCodeGenerationResult.module.css'
 
 export function QRCodeGenerationResult() {
   const result = useQRCodeResultContent()
@@ -16,6 +17,9 @@ export function QRCodeGenerationResult() {
   const darkColor = useQRCodeGenerationCustomizationStore(darkColorSelector)
   const lightColor = useQRCodeGenerationCustomizationStore(lightColorSelector)
   const design = useQRCodeGenerationCustomizationStore(designSelector)
+
+  // notifications
+  const { success } = useNotifications()
 
   // get downloading feature
   const { download, updateFileName, updatePrinterConfig } = useDownloadQRCode()
@@ -35,6 +39,7 @@ export function QRCodeGenerationResult() {
     return () => {
       const qrCodeContent = QRCode.create({ message: result, minimalErrorCorrection: errorCorrection })
       download(qrCodeContent, fileType)
+      success('Image is downloaded!')
     }
   }
 
@@ -58,7 +63,7 @@ export function QRCodeGenerationResult() {
           <Button block onClick={createFileDownloadCallback(fileTypeWebp)}>WEBP</Button>
         </div>
 
-        <Hint>
+        <Hint className={styles.Caption}>
           Download QR Code to use it in your activities <br />
           The customization settings are not saved!
         </Hint>
