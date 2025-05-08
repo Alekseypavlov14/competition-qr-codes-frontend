@@ -6,13 +6,13 @@ import { useState } from 'react'
 export function useDisplayQRCode(initial: QRCodeDisplayConfig = {}) {
   const [config, setConfig] = useState<Required<QRCodeDisplayConfig>>(normalizeConfig(initial))
   
-  const printer = new Printer()
-
   function updateConfig(newConfig: QRCodeDisplayConfig) {
     setConfig(normalizeConfig(config, newConfig))
   }
-
+  
   function display(container: HTMLElement, content: QRCodeContent) {
+    const printer = new Printer()
+
     printer.setDarkColor(config.darkColor)
     printer.setLightColor(config.lightColor)
     printer.setDesign(config.design)
