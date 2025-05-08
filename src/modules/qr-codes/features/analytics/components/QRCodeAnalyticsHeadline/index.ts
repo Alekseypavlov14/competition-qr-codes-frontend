@@ -1,0 +1,1 @@
+export { QRCodeAnalyticsHeadline } from './QRCodeAnalyticsHeadline'
