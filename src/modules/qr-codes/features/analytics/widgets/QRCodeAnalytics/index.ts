@@ -1,0 +1,1 @@
+export { QRCodeAnalytics } from './QRCodeAnalytics'
