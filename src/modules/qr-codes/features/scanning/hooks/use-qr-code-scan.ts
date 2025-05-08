@@ -1,7 +1,7 @@
 import { redirectStatusFail, redirectStatusPending, redirectStatusSuccess } from '../constants'
 import { updateStatusSelector, useRedirectStatusStore } from '../stores/redirect-status.store'
 import { mapDateToISOString } from '@/shared/utils/datetime'
-import { qrCodeAnalyticsAPI } from '../qr-code-analytics.api'
+import { qrCodeScanningAPI } from '../qr-code-scanning.api'
 import { useRef } from 'react'
 
 export function useQRCodeScan() {
@@ -18,7 +18,7 @@ export function useQRCodeScan() {
     // set pending status
     updateStatus(redirectStatusPending)
 
-    qrCodeAnalyticsAPI.scan({ hash, date })
+    qrCodeScanningAPI.scan({ hash, date })
       .then(qrCode => {
         updateStatus(redirectStatusSuccess)
         window.location.assign(qrCode.content)
