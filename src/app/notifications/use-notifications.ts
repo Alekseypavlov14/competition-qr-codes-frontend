@@ -1,5 +1,5 @@
+import { failureNotificationStatus, infoNotificationStatus, Notification, NotificationStatus, successNotificationStatus, warningNotificationStatus } from './notification'
 import { popNotificationsSelector, pushNotificationSelector, useNotificationsStore } from './store'
-import { failureNotificationStatus, infoNotificationStatus, Notification, successNotificationStatus, warningNotificationStatus } from './notification'
 import { notificationsDelay } from './constants'
 
 export function useNotifications() {
@@ -7,39 +7,25 @@ export function useNotifications() {
   const popNotification = useNotificationsStore(popNotificationsSelector)
   
   function success(message: string) {
-    const notification: Notification = { 
-      status: successNotificationStatus,
-      message: message
-    }
-
-    pushNotification(notification)
-    setTimeout(popNotification, notificationsDelay)
+    createNotification(message, successNotificationStatus)
   }
 
   function failure(message: string) {
-    const notification: Notification = { 
-      status: failureNotificationStatus,
-      message: message
-    }
-
-    pushNotification(notification)
-    setTimeout(popNotification, notificationsDelay)
+    createNotification(message, failureNotificationStatus)
   }
 
   function warning(message: string) {
-    const notification: Notification = { 
-      status: warningNotificationStatus,
-      message: message
-    }
-  
-    pushNotification(notification)
-    setTimeout(popNotification, notificationsDelay)
+    createNotification(message, warningNotificationStatus)
   }
 
   function info(message: string) {
+    createNotification(message, infoNotificationStatus)
+  }
+
+  function createNotification(message: string, status: NotificationStatus) {
     const notification: Notification = { 
-      status: infoNotificationStatus,
-      message: message
+      message: message,
+      status: status,
     }
   
     pushNotification(notification)
