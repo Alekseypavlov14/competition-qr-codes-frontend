@@ -6,11 +6,11 @@
 }
 
 h1 {
-  font-size: 77px;
+  font-size: 78px;
   font-weight: 600;
 }
 h2 {
-  font-size: 55px;
+  font-size: 56px;
   font-weight: 600;
 }
 h3 {
@@ -42,50 +42,50 @@ h6 {
     font-size: 60px;
   }
   h2 {
-    font-size: 34px;
+    font-size: 44px;
+  }
+  h3 {
+    font-size: 38px;
+  }
+  h4 {
+    font-size: 32px;
+  }
+  h5 {
+    font-size: 28px;
+  }
+  h6 {
+    font-size: 22px;
+  }
+  .text {
+    font-size: 18px;
+  }
+  .text-small {
+    font-size: 14px;
+  }
+}
+@media (max-width: 450px) {
+  h1 {
+    font-size: 48px;
+  }
+  h2 {
+    font-size: 36px;
   }
   h3 {
     font-size: 32px;
   }
   h4 {
-    font-size: 30px;
+    font-size: 24px;
   }
   h5 {
-    font-size: 26px;
+    font-size: 22px;
   }
   h6 {
-    font-size: 22px;
+    font-size: 16px;
   }
   .text {
     font-size: 16px;
   }
   .text-small {
     font-size: 12px;
-  }
-}
-@media (max-width: 450px) {
-  h1 {
-    font-size: 36px;
-  }
-  h2 {
-    font-size: 22px;
-  }
-  h3 {
-    font-size: 20px;
-  }
-  h4 {
-    font-size: 18px;
-  }
-  h5 {
-    font-size: 20px;
-  }
-  h6 {
-    font-size: 16px;
-  }
-  .text {
-    font-size: 12px;
-  }
-  .text-small {
-    font-size: 10px;
   }
 }
