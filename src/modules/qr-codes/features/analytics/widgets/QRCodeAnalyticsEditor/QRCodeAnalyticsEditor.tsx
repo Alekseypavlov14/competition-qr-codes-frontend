@@ -59,6 +59,7 @@ export function QRCodeAnalyticsEditor() {
           darkColor={darkColor}
           lightColor={lightColor}
           design={design}
+          responsive
         />
       </div>
 

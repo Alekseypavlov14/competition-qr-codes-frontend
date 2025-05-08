@@ -2,7 +2,16 @@
   width: 100%;
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
   gap: var(--gap);
+}
+
+.Preview {
+  --size: 300px;
+
+  width: 100%;
+  max-width: var(--size);
+  aspect-ratio: 1;
 }
 
 .Form {
@@ -26,8 +35,14 @@
 }
 
 .Downloads {
-  width: 100%;
+  flex: 1 1 auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--gap);
+}
+
+@media (width <= 798px) {
+  .Colors {
+    grid-template-columns: 1fr;
+  }
 }
