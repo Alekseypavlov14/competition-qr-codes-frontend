@@ -1,0 +1,4 @@
+.QRCodeAnalyticsEditor {
+  display: flex;
+  gap: var(--gap);
+}
