@@ -1,6 +1,7 @@
 import { darkColorSelector, designSelector, lightColorSelector, useQRCodeGenerationCustomizationStore } from '../../stores/customization.store'
 import { contentSelector, errorCorrectionSelector, useQRCodeGenerationContentStore } from '../../stores/content.store'
 import { QRCodePreview } from '@/modules/qr-codes'
+import { Hint } from '../../components/Hint'
 import styles from './QRCodeGenerationPreview.module.css'
 
 export function QRCodeGenerationPreview() {
@@ -22,7 +23,9 @@ export function QRCodeGenerationPreview() {
         debounce
       />
 
-      <div className={styles.Caption}>Final QR Code is available <br /> after form completion</div>
+      <Hint className={styles.Caption}>
+        Final QR Code is available <br /> after form completion
+      </Hint>
     </div>
   )
 }
