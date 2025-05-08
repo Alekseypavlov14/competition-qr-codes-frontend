@@ -6,5 +6,6 @@ export * from './components/ErrorCorrectionList'
 export * from './components/ErrorCorrectionPalette'
 export * from './components/QRCodeDesignPaletteList'
 export * from './components/QRCodeDesignPalette'
+export * from './components/Hint'
 
 export { errorCorrectionPercentageMap } from './constants'

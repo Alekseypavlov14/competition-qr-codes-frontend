@@ -1,10 +1,12 @@
 .QRCodeAnalyticsEditor {
   width: 100%;
   display: flex;
+  align-items: flex-start;
   gap: var(--gap);
 }
 
 .Form {
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   gap: var(--gap);
@@ -21,4 +23,11 @@
 }
 .ColorField {
   width: 100%;
+}
+
+.Downloads {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--gap);
 }

@@ -1,15 +1,20 @@
-import { ErrorCorrectionList, ErrorCorrectionPalette, errorCorrectionPercentageMap, getQRCodeAnalyticContent, QRCodeDesignPalette, QRCodeDesignPaletteList, QRCodePreview } from '@/modules/qr-codes'
+import { ErrorCorrectionList, ErrorCorrectionPalette, errorCorrectionPercentageMap, getQRCodeAnalyticContent, Hint, QRCodeDesignPalette, QRCodeDesignPaletteList, QRCodePreview, useDownloadQRCode } from '@/modules/qr-codes'
 import { darkColorSelector, designSelector, errorCorrectionSelector, lightColorSelector, updateDarkColorSelector, updateDesignSelector, updateErrorCorrectionSelector, updateLightColorSelector, useEditorStore } from '../../stores/editor.store'
-import { designsList, ERROR_CORRECTION_ASCENDING_LIST } from '@oleksii-pavlov/qr-codes'
+import { designsList, ERROR_CORRECTION_ASCENDING_LIST, FileType, fileTypeJPEG, fileTypePNG, fileTypeSVG, fileTypeWebp, QRCode } from '@oleksii-pavlov/qr-codes'
 import { qrCodeSelector, useQRCodeStore } from '../../stores/qr-code.store'
 import { BLACK_COLOR, WHITE_COLOR } from '@/shared/constants'
-import { ChangeEvent } from 'react'
+import { ChangeEvent, useEffect } from 'react'
+import { useNotifications } from '@/app/notifications'
+import { Button } from '@/shared/components/Button'
 import { Input } from '@/shared/components/Input'
 import styles from './QRCodeAnalyticsEditor.module.css'
 
 export function QRCodeAnalyticsEditor() {
   const qrCode = useQRCodeStore(qrCodeSelector)
 
+  const { success } = useNotifications()
+
+  // form state
   const errorCorrection = useEditorStore(errorCorrectionSelector)
   const darkColor = useEditorStore(darkColorSelector)
   const lightColor = useEditorStore(lightColorSelector)
@@ -27,11 +32,29 @@ export function QRCodeAnalyticsEditor() {
     updateLightColor(e.target.value)
   }
 
+  // get download feature
+  const { download, updateFileName, updatePrinterConfig } = useDownloadQRCode()
+
+  // update file name to download
+  useEffect(() => updateFileName(qrCode?.content ?? ''), [qrCode])
+
+  // connect downloader with form state
+  useEffect(() => updatePrinterConfig({ lightColor, darkColor, design }), [darkColor, lightColor, design])
+
+  // callback for downloading
+  function createFileDownloadCallback(fileType: FileType) {
+    return () => {
+      const qrCodeContent = QRCode.create({ message: qrCode?.content ?? '', minimalErrorCorrection: errorCorrection })
+      download(qrCodeContent, fileType)
+      success('Image is downloaded!')
+    }
+  }
+
   return (
     <div className={styles.QRCodeAnalyticsEditor}>
       <div className={styles.Preview}>
         <QRCodePreview 
-          content={getQRCodeAnalyticContent(qrCode?.content ?? '')}
+          content={getQRCodeAnalyticContent(qrCode?.hash ?? '')}
           errorCorrection={errorCorrection}
           darkColor={darkColor}
           lightColor={lightColor}
@@ -78,9 +101,16 @@ export function QRCodeAnalyticsEditor() {
             />
           ))}
         </QRCodeDesignPaletteList>
+
+        <Hint>You can have differently customized QR Codes having the same content.</Hint>
       </div>
 
-      <div className={styles.Download}></div>
+      <div className={styles.Downloads}>
+        <Button block onClick={createFileDownloadCallback(fileTypeSVG)}>SVG</Button>
+        <Button block onClick={createFileDownloadCallback(fileTypePNG)}>PNG</Button>
+        <Button block onClick={createFileDownloadCallback(fileTypeJPEG)}>JPEG</Button>
+        <Button block onClick={createFileDownloadCallback(fileTypeWebp)}>WEBP</Button>
+      </div>
     </div>
   )
 }
