@@ -1,4 +1,24 @@
 .QRCodeAnalyticsEditor {
+  width: 100%;
   display: flex;
   gap: var(--gap);
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.Field {
+  width: 100%;
+}
+
+.Colors {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+}
+.ColorField {
+  width: 100%;
 }

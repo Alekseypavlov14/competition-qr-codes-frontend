@@ -1,5 +1,5 @@
 import { QRCodeAnalyticsHeadline } from '../QRCodeAnalyticsHeadline'
-import { QRCodeAnalyticsPreview } from '../QRCodeAnalyticsPreview'
+import { QRCodeAnalyticsEditor } from '../QRCodeAnalyticsEditor'
 import { Container } from '@/shared/components/Container'
 import styles from './QRCodeAnalytics.module.css'
 
@@ -8,7 +8,7 @@ export function QRCodeAnalytics() {
     <Container>
       <div className={styles.QRCodeAnalytics}>
         <QRCodeAnalyticsHeadline />
-        <QRCodeAnalyticsPreview />
+        <QRCodeAnalyticsEditor />
       </div>
     </Container>
   )
