@@ -1,6 +1,7 @@
 import { Credentials } from './types/credentials'
 import { httpClient } from '@/shared/utils/http'
 import { saveToken } from './middlewares/save-token'
+import { authorizedHTTPClient } from '@/app/http'
 
 export class AuthAPI {
   async signIn(credentials: Credentials): Promise<Response> {
@@ -11,6 +12,10 @@ export class AuthAPI {
   async signUp(credentials: Credentials): Promise<Response> {
     return await httpClient.post<Credentials, Response>(`/auth/sign-up`, credentials, {}, { parse: false })
       .then(saveToken)
+  }
+
+  async verifyToken(): Promise<void> {
+    return await authorizedHTTPClient.get('/auth/verification')
   }
 }
 
