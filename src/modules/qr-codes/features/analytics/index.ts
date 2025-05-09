@@ -7,4 +7,5 @@ export * from './hooks/use-qr-code-by-id'
 
 export * from './widgets/QRCodeAnalytics'
 export * from './widgets/QRCodeAnalyticsHeadline'
+export * from './widgets/QRCodeAnalyticsStatistics'
 export * from './widgets/QRCodeAnalyticsEditor'

@@ -1,3 +1,4 @@
+import { QRCodeAnalyticsStatistics } from '../QRCodeAnalyticsStatistics'
 import { QRCodeAnalyticsHeadline } from '../QRCodeAnalyticsHeadline'
 import { QRCodeAnalyticsEditor } from '../QRCodeAnalyticsEditor'
 import { QRCodeAnalyticsDelete } from '../QRCodeAnalyticsDelete'
@@ -8,6 +9,7 @@ export function QRCodeAnalytics() {
     <div className={styles.QRCodeAnalytics}>
       <QRCodeAnalyticsHeadline />
       <QRCodeAnalyticsEditor />
+      <QRCodeAnalyticsStatistics />
       <QRCodeAnalyticsDelete />
     </div>
   )
