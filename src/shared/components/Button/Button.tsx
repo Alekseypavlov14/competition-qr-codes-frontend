@@ -8,6 +8,7 @@ interface ButtonProps extends Customizable, ComponentProps<'button'> {
   centered?: boolean
   filled?: boolean
   outlined?: boolean
+  danger?: boolean
   block?: boolean
 }
 
@@ -20,6 +21,7 @@ export function Button({
   centered,
   filled, 
   outlined,
+  danger,
   block,
 
   ...props
@@ -30,6 +32,7 @@ export function Button({
     centered && styles.ButtonCentered,
     filled && styles.ButtonFilled,
     outlined && styles.ButtonOutlined,
+    danger && styles.ButtonDanger,
     block && styles.ButtonBlock,
     className,
     ...classList,
