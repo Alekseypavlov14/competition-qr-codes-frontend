@@ -1,0 +1,1 @@
+export { QRCodeAnalyticsDelete } from './QRCodeAnalyticsDelete'

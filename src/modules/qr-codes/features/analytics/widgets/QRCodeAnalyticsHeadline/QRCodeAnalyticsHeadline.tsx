@@ -6,7 +6,7 @@ export function QRCodeAnalyticsHeadline() {
 
   return (
     <h3 className={styles.QRCodeAnalyticsHeadline}>
-      QR Code: {qrCode?.content ?? 'Loading...'}
+      QR&nbsp;Code:&nbsp;{qrCode?.content ?? 'Loading...'}
     </h3>
   )
 }
