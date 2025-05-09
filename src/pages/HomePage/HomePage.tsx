@@ -1,3 +1,4 @@
+import { useWebsiteTitle } from '@/shared/hooks/use-website-title'
 import { StructureLayout } from '@/layouts/StructureLayout'
 import { SectionHeader } from '@/shared/components/SectionHeader'
 import { useNavigation } from '@/app/navigation'
@@ -8,6 +9,8 @@ import { Section } from '@/shared/components/Section'
 import { Button } from '@/shared/components/Button'
 
 export function HomePage() {
+  useWebsiteTitle('Dashboard')
+
   const { navigateQRCodeGenerationPage } = useNavigation()
 
   return (
