@@ -1,6 +1,6 @@
 import { defaultHandleHTTPException } from '@/shared/utils/exception'
 import { useNotifications } from '@/app/notifications'
-import { alwaysHandler } from '@oleksii-pavlov/error-handling'
+import { defaultHandler } from '@oleksii-pavlov/error-handling'
 import { useNavigation } from '@/app/navigation'
 import { Credentials } from '../types/credentials'
 import { authAPI } from '../auth.api'
@@ -16,7 +16,8 @@ export function useAuth() {
         success('You are logged in')
       })
       .catch(defaultHandleHTTPException({
-        [alwaysHandler]: () => failure('Email or password is invalid')
+        401: () => failure('Email or password is invalid'),
+        [defaultHandler]: () => failure('Error occurred. Try again later')
       }))
   }
 
@@ -27,7 +28,9 @@ export function useAuth() {
         success('You are signed in')
       })
       .catch(defaultHandleHTTPException({
-        [alwaysHandler]: () => failure('Email or password is invalid')
+        401: () => failure('Email or password is invalid'),
+        409: () => failure('This email is registered'),
+        [defaultHandler]: () => failure('Error occurred. Try again later')
       }))
   }
 
