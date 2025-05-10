@@ -1,7 +1,7 @@
 import { ComponentProps } from 'react'
+import { Container } from '@/shared/components/Container'
 import styles from './Header.module.css'
 import clsx from 'clsx'
-import { Container } from '@/shared/components/Container'
 
 interface HeaderProps extends ComponentProps<'header'> {}
 

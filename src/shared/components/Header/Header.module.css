@@ -1,12 +1,11 @@
 .Header {
   background-color: var(--white);
   border-bottom: 1px solid var(--dark-800);
+  padding: 15px 0px;
 }
 
 .Container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 15px;
-  padding-bottom: 15px;
 }
