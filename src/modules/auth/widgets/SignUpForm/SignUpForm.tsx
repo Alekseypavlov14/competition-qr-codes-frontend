@@ -1,6 +1,5 @@
 import { emailSelector, passwordSelector, updateEmailSelector, updatePasswordSelector, useAuthFormStore } from '../../form.store'
 import { ChangeEvent, useId } from 'react'
-import { useWebsiteTitle } from '@/shared/hooks/use-website-title'
 import { useValidateForm } from '../../hooks/use-validate-form'
 import { useNavigation } from '@/app/navigation'
 import { RedirectLink } from '../../components/RedirectLink'
@@ -12,8 +11,6 @@ import { Input } from '@/shared/components/Input'
 import styles from './SignUpForm.module.css'
 
 export function SignUpForm() {
-  useWebsiteTitle('Create new account')
-  
   const { navigateSignInPage } = useNavigation()
 
   const emailInputId = useId()

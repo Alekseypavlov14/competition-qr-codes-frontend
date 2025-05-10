@@ -1,7 +1,7 @@
+import { authorizedHTTPClient } from '@/app/http'
 import { Credentials } from './types/credentials'
 import { httpClient } from '@/shared/utils/http'
 import { saveToken } from './middlewares/save-token'
-import { authorizedHTTPClient } from '@/app/http'
 
 export class AuthAPI {
   async signIn(credentials: Credentials): Promise<Response> {

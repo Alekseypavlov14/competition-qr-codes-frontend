@@ -1,8 +1,9 @@
 import { QRCodeAnalyticsRedirect } from '@/modules/qr-codes'
-import { SignInPage, SignUpPage } from '@/modules/auth'
 import { QRCodeGenerationPage } from '@/pages/QRCodeGenerationPage'
 import { QRCodeAnalyticsPage } from '@/pages/QRCodeAnalyticsPage'
 import { createBrowserRouter } from 'react-router-dom'
+import { SignInPage } from '@/pages/SignInPage'
+import { SignUpPage } from '@/pages/SignUpPage'
 import { HomePage } from '@/pages/HomePage'
 
 export const routing = createBrowserRouter([
