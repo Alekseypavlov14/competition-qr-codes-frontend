@@ -44,7 +44,11 @@ export function QRCodeAnalyticsEditor() {
   // callback for downloading
   function createFileDownloadCallback(fileType: FileType) {
     return () => {
-      const qrCodeContent = QRCode.create({ message: qrCode?.content ?? '', minimalErrorCorrection: errorCorrection })
+      const qrCodeContent = QRCode.create({ 
+        message: getQRCodeAnalyticContent(qrCode?.hash ?? ''), 
+        minimalErrorCorrection: errorCorrection 
+      })
+      
       download(qrCodeContent, fileType)
       success('Image is downloaded!')
     }
